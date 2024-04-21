@@ -1,0 +1,131 @@
+.header {
+    width: 100%;
+    padding: 20px 0 50px;
+}
+
+.header-slider {
+    width: 100%;
+    height: 100%;
+}
+
+.header-slider__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 15px;
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-right: 75px;
+    column-gap: 20px;
+}
+
+.header-slider__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    bottom: -25px !important;
+}
+
+.swiper-pagination-bullet {
+    width: 60px;
+    height: 4px;
+    border-radius: 50px;
+    background: var(--btnMain);
+    transition: 0.3s;
+}
+
+.swiper-pagination-bullet-active {
+    transform: translateY(-100%);   
+}
+
+.header-content {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 335px;
+    box-shadow: var(--mainShadow);
+    background-color: var(--bgMain);
+    position: relative;
+    user-select: none;
+    border-radius: var(--lowRadius);
+}
+
+.header-content__img {
+    width: 100%;
+    max-width: 400px;
+    height: 100%;
+    object-fit: contain;
+}
+
+.header-slider__item--wrapper {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    align-items: flex-start;
+}
+
+.header-slider__item--wrapper h2 {
+    color: var(--colorDark);
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.header-slider__item--wrapper a {
+    padding: 8px 60px;
+}
+
+@media (max-width: 1280px) {
+    .header-slider__item--wrapper h2 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 960px) {
+    .header-content {
+        height: 300px;
+    }
+    
+    .header-slider__item {
+        padding: 35px;
+    }
+}
+@media (max-width: 768px) {
+    .header-content__img {
+        max-width: 250px;
+    }
+
+    .header-slider__item--wrapper h2 {
+        font-size: 20px;
+    }
+
+    .header-content {
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .header-content {
+        height: 350px;
+    }
+    
+    .header-slider__item {
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .header-slider__item--wrapper {
+        width: 100%;
+        align-items: center;
+    }
+
+    .header-slider__item--wrapper h2 {
+        text-align: center;
+    }
+
+    .header-content__img {
+        max-width: 250px;
+        height: 150px;
+    }
+}

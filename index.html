@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./dist/main.js" defer></script>
+    <link rel="stylesheet" href="assets/css/index.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav class="navbar" id="navbar">
+            <div class="container">
+                <div class="navbar-nav">
+                    <div class="navbar-nav__wrapper">
+                        <a href="#!" class="navbar-nav__logo">LOGO</a>
+                        <div class="navbar-nav__filter">
+                            <button type="button" class="btn navbar-nav__filter--wrapper">
+                                <img src="assets/img/icon-filter.svg" alt="">
+                                <span>Фильтры</span>
+                            </button>
+                            <div class="navbar-nav__filter--list">
+                                <input id="min" type="text"
+                                    class="navbar-nav__filter--list--input navbar-nav__filter--list--min"
+                                    placeholder="цена от">
+                                <input id="max" type="text"
+                                    class="navbar-nav__filter--list--input navbar-nav__filter--list--max"
+                                    placeholder="цена до">
+                                <label class="navbar-nav__filter--list--label">
+                                    <input id="discount" type="checkbox" class="navbar-nav__filter--list--discount">
+                                    <div class="navbar-nav__filter--list--checkbox">
+                                        <div class="navbar-nav__filter--list--checked"></div>
+                                    </div>
+                                    <span>Акции</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="navbar-nav__search">
+                        <input type="text" class="navbar-nav__search--input" placeholder="Поиск по сайту...">
+                        <a href="#products" class="btn">Найти</a>
+                    </div>
+                    <div class="navbar-nav__wrapper">
+                        <button type="button" class="btn navbar-nav__cart">
+                            <img src="./assets/img/icon-cart.svg" alt="">
+                            <span>Корзина</span>
+                        </button>
+                        <a href="#!" class="btn navbar-nav__lang">
+                            <img src="./assets/img/icon-lang.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <header class="header">
+            <div class="container">
+                <div class="header-content">
+                    <div class="swiper mySwiper header-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide header-slider__item">
+                                <img src="./assets/img/slider-1.png" alt="" class="header-content__img">
+                                <div class="header-slider__item--wrapper">
+                                    <h2>Смартфон Samsung Galaxy S21 128 ГБ Phantom Gray</h2>
+                                    <a href="#products" class="btn">Подробнее</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide header-slider__item">
+                                <img src="./assets/img/laptop.png" alt="" class="header-content__img">
+                                <div class="header-slider__item--wrapper">
+                                    <h2>Игровой ноутбук Lenovo Gaming 3</h2>
+                                    <a href="#products" class="btn">Подробнее</a>
+                                </div>
+                            </div>
+                            <div class="swiper-slide header-slider__item">
+                                <img src="./assets/img/TV.png" alt="" class="header-content__img">
+                                <div class="header-slider__item--wrapper">
+                                    <h2>Телевизор Samsung UE55AU7100 Smart</h2>
+                                    <a href="#products" class="btn">Подробнее</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="swiper-pagination header-slider__pagination swiper-pagination-clickable swiper-pagination-bullets swiper-pagination-horizontal">
+                    </div>
+                </div>
+            </div>
+        </header>
+        <section class="category">
+            <div class="container">
+                <div class="category-content">
+                    <a href="#products" class="category-content__item category-content__item-1">
+                        <span class="category-content__item-name">Телефоны</span>
+                    </a>
+                    <a href="#products" class="category-content__item category-content__item-2">
+                        <span class="category-content__item-name">Ноутбуки</span>
+                    </a>
+                    <a href="#products" class="category-content__item category-content__item-3">
+                        <span class="category-content__item-name">Телевизоры</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <section class="products" id="products">
+            <div class="container">
+                <div class="products-content">
+                    <h2 class="products-content__title">Наш ассортимент</h2>
+                    <div class="products-content__wrapper">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-content__wrapper">
+                        <a href="#!" class="footer-content__logo">LOGO</a>
+                        <a href="tel:99999999999" class="btn footer-content__phone">
+                            <img src="assets/img/icon-phone.svg" alt="">
+                            <span>Позвонить</span>
+                        </a>
+                    </div>
+                    <div class="footer-content__wrapper">
+                        <a href="#!" class="footer-content__social">
+                            <img src="assets/img/icon-telegram.svg" alt="">
+                        </a>
+                        <a href="#!" class="footer-content__social">
+                            <img src="assets/img/icon-instagram.svg" alt="">
+                        </a>
+                        <a href="#!" class="footer-content__social">
+                            <img src="assets/img/icon-facebook.svg" alt="">
+                        </a>
+                        <a href="#navbar" class="btn footer-content__up">
+                            <img src="assets/img/icon-arrow.svg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <section class="copyright">
+            <h1 class="copyright-name">© IVCS 2022 All Rights Reserved</h1>
+        </section>
+        <div class="cart-modal">
+            <div class="cart-modal__close"></div>
+            <div class="cart-modal__wrapper">
+                <div class="cart-modal__total">
+                    Всего: <span id="cartSpan">0</span> сум
+                </div>
+                <button class="cart-modal__btn--close">
+                    <img src="./assets/img/icon-close.svg" alt="">
+                </button>
+                <div class="cart-modal__list"></div>
+                <form class="cart-modal__form">
+                    <div class="cart-modal__form--wrapper">
+                        <input type="text" name="name" class="cart-modal__form--input cart-modal__form--name"
+                            placeholder="Ваше имя">
+                        <input type="text" name="contact" class="cart-modal__form--input cart-modal__form--phone"
+                            placeholder="Номер телефона/telegram">
+                    </div>
+                    <button class="btn cart-modal__form--send">Заказать</button>
+                </form>
+                <button type="button" class="btn cart-modal__next">
+                    <span>Оформить заказ</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

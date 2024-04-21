@@ -1,0 +1,142 @@
+{
+    "products": [
+      {
+        "id": 0,
+        "title": "Смартфон Samsung Galaxy S21 128 ГБ Phantom Gray",
+        "price": 6900000,
+        "sale": false,
+        "count": "6600000",
+        "img": "../assets/img/slider-1.png",
+        "category": "Телефоны"
+      },
+      {
+        "id": 1,
+        "title": "Смартфон Samsung Galaxy S21 128 ГБ Phantom Gray",
+        "price": 7900000,
+        "sale": true,
+        "count": "6600000",
+        "img": "../assets/img/slider-1.png",
+        "category": "Телефоны"
+      },
+      {
+        "id": 2,
+        "title": "Смартфон Samsung Galaxy S21 128 ГБ Phantom Gray",
+        "price": 5899900,
+        "sale": false,
+        "count": "6600000",
+        "img": "../assets/img/slider-1.png",
+        "category": "Телефоны"
+      },
+      {
+        "id": 3,
+        "title": "Смартфон Samsung Galaxy S21 128 ГБ Phantom Gray",
+        "price": 2341100,
+        "sale": true,
+        "count": "6600000",
+        "img": "../assets/img/slider-1.png",
+        "category": "Телефоны"
+      },
+      {
+        "id": 4,
+        "title": "Смартфон Samsung Galaxy S21 128 ГБ Phantom Gray",
+        "price": 2475150,
+        "sale": false,
+        "count": "6600000",
+        "img": "../assets/img/slider-1.png",
+        "category": "Телефоны"
+      },
+      {
+        "id": 5,
+        "title": "Игровой ноутбук Lenovo Gaming 3 ",
+        "price": 11624000,
+        "sale": true,
+        "count": "6600000",
+        "img": "../assets/img/laptop.png",
+        "category": "Ноутбуки"
+      },
+      {
+        "id": 6,
+        "title": "Игровой ноутбук Lenovo Gaming 3 ",
+        "price": 15551250,
+        "sale": true,
+        "count": "6600000",
+        "img": "../assets/img/laptop.png",
+        "category": "Ноутбуки"
+      },
+      {
+        "id": 7,
+        "title": "Игровой ноутбук Lenovo Gaming 3 ",
+        "price": 10565445,
+        "sale": false,
+        "count": "6600000",
+        "img": "../assets/img/laptop.png",
+        "category": "Ноутбуки"
+      },
+      {
+        "id": 8,
+        "title": "Игровой ноутбук Lenovo Gaming 3 ",
+        "price": 12390000,
+        "sale": false,
+        "count": "6600000",
+        "img": "../assets/img/laptop.png",
+        "category": "Ноутбуки"
+      },
+      {
+        "id": 9,
+        "title": "Игровой ноутбук Lenovo Gaming 3 ",
+        "price": 11256566,
+        "sale": true,
+        "count": "6600000",
+        "img": "../assets/img/laptop.png",
+        "category": "Ноутбуки"
+      },
+      {
+        "id": 10,
+        "title": "Телевизор Samsung UE55AU7100 Smart",
+        "price": 14256566,
+        "sale": false,
+        "count": "6600000",
+        "img": "../assets/img/TV.png",
+        "category": "Телевизоры"
+      },
+      {
+        "id": 11,
+        "title": "Телевизор Samsung UE55AU7100 Smart",
+        "price": 13256566,
+        "sale": false,
+        "count": "6600000",
+        "img": "../assets/img/TV.png",
+        "category": "Телевизоры"
+      },
+      {
+        "id": 12,
+        "title": "Телевизор Samsung UE55AU7100 Smart",
+        "price": 10256566,
+        "sale": true,
+        "count": "6600000",
+        "img": "../assets/img/TV.png",
+        "category": "Телевизоры"
+      },
+      {
+        "id": 13,
+        "title": "Телевизор Samsung UE55AU7100 Smart",
+        "price": 9256566,
+        "sale": false,
+        "count": "6600000",
+        "img": "../assets/img/TV.png",
+        "category": "Телевизоры"
+      },
+      {
+        "id": 14,
+        "title": "Телевизор Samsung UE55AU7100 Smart",
+        "price": 8256566,
+        "sale": true,
+        "count": "6600000",
+        "img": "../assets/img/TV.png",
+        "category": "Телевизоры"
+      }
+    ],
+    "posts":[
+
+    ]
+  }

@@ -1,0 +1,30 @@
+.wrapper {
+    width: 100%;
+    min-height: 100vh;
+    background: var(--bgMain);
+}
+
+.btn {
+    background: var(--btnMain);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: var(--lowShadow);
+    border-radius: var(--lowRadius);
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    color: var(--colorLight);
+    font-size: 14px;
+    font-weight: 700;
+    padding: 8px 12px;
+}
+
+.btn:hover {
+    background: var(--btnHover);
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn:focus {
+    background: var(--btnActive);
+}

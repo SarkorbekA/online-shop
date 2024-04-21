@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Regular.ttf');
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Medium.ttf');
+    font-weight: 500;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Bold.ttf');
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
+}
+
+@font-face {
+    font-family: 'Raleway';
+    src: url('../fonts/Raleway-Black.ttf');
+    font-weight: 900;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    font-family: 'Raleway', sans-serif;
+    font-variant-numeric: lining-nums;
+    -ms-font-feature-settings:”lnum” 1; 
+    -o-font-feature-settings:”lnum” 1; 
+    -webkit-font-feature-settings:”lnum” 1; 
+    font-feature-settings:”lnum” 1;
+}
