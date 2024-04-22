@@ -10,7 +10,8 @@ import admin from './modules/admin';
 
 console.log(window.location);
 
-if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
+// if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
+if (!window.location.pathname.includes('admin.html')) {
     const swiper = new Swiper(".swiper", {
         autoplay: {
             delay: 5000,
