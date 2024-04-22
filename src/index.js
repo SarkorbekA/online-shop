@@ -8,6 +8,8 @@ import catalog from './modules/catalog';
 import admin from './modules/admin';
 
 
+console.log(window.location);
+
 if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
     const swiper = new Swiper(".swiper", {
         autoplay: {
