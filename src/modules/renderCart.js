@@ -1,6 +1,13 @@
 const renderCart = (products) => {
     const cartWrapper = document.querySelector('.cart-modal__list')
 
+    function toFormat(str) {
+        return str.split('').reverse().join('')
+            .match(/\d{0,3}/g).join(' ')
+            .split('').reverse().join('').trim()
+    }
+
+
     cartWrapper.innerHTML = ''
 
     if(products.length === 0){
@@ -17,8 +24,8 @@ const renderCart = (products) => {
                 <img src="${productsItem.img}" alt="img" class="products-content__item--img">
                 <h3 class="products-content__item--name">${productsItem.title}</h3>
                 <div class="products-content__item--discount">
-                    <span class="products-content__item--price">${productsItem.price} сум</span>
-                    <span class="products-content__item--price--old">${productsItem.sale ? productsItem.count : ''}</span>
+                    <span class="products-content__item--price">${toFormat(productsItem.price)} сум</span>
+                    <span class="products-content__item--price--old">${productsItem.sale ? toFormat(productsItem.count) + ' сум' : ''}</span>
                 </div>
                 <button type="button" class="btn products-content__item--btn">Удалить</button>
             </div>

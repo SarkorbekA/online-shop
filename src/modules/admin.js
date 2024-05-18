@@ -23,30 +23,38 @@ const admin = () => {
         event.preventDefault();
 
         const formData = new FormData(event.target);
-        const productId = formData.get('productId');
+        let productId = formData.get('productId');
 
-        const sale = formData.get('sale') === 'on';
+        let sale = formData.get('sale') === 'on';
+        if (sale === true) {
+            sale = 1
+        } else if (sale === false) {
+            sale = 0
+        }
+        formData.set('sale', sale);
 
-        const data = {
-            title: formData.get('title'),
-            price: Number(formData.get('price')),
-            sale: sale,
-            count: formData.get('count'),
-            img: formData.get('img'),
-            category: formData.get('category')
-        };
 
-        const method = productId ? 'PUT' : 'POST';
-        const url = productId ? `http://127.0.0.1:8000/api/products/${productId}` : 'http://127.0.0.1:8000/api/products';
+        const imgFileInput = document.getElementById('img');
+        const file = imgFileInput.files[0];
+        formData.set('img', file);
+
+        // const method = productId ? 'PUT' : 'POST';
+        const method = 'POST';
+        const url = productId ? `https://api.mirpodarkov-navoi.uz/api/products/${productId}?_method=PUT` : 'https://api.mirpodarkov-navoi.uz/api/products';
+
 
         axios({
             method: method,
             url: url,
-            data: data
+            data: formData,
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
         })
             .then(function (response) {
                 let message = response.data.message;
                 console.log(response);
+                productId = null;
                 document.querySelector('.admin__create-log').innerHTML = message;
                 document.querySelector('.admin__create-form').reset();
 
@@ -63,37 +71,52 @@ const admin = () => {
     function updateProduct(productId) {
         console.log('Выбран продукт с ID:', productId);
 
-        axios.get('http://127.0.0.1:8000/api/products/${productId}')
+        axios.get(`https://api.mirpodarkov-navoi.uz/api/products/${productId}`)
             .then(response => {
-            const productData = response.data.data;
+                const productData = response.data.data;
 
-            document.getElementById('productId').value = productId;
-            document.getElementById('title').value = productData.title;
-            document.getElementById('price').value = productData.price;
-            document.getElementById('sale').checked = productData.sale;
-            document.getElementById('count').value = productData.count;
-            document.getElementById('img').value = productData.img;
-            document.getElementById('category').value = productData.category
+                document.getElementById('productId').value = productId;
+                document.getElementById('title').value = productData.title;
+                document.getElementById('price').value = productData.price;
+                document.getElementById('sale').checked = productData.sale;
+                document.getElementById('count').value = productData.count;
+                // document.getElementById('img').files = 'http://127.0.0.1:8000/api/products/images/bhVuMtoQ4M8nLpZHGGLcqU842McEbmQlaw7m08nh.jpg';
+                document.getElementById('category').value = productData.category
 
-            // document.querySelector('#form').scrollIntoView({ behavior: 'smooth' })
 
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
+                var imageURL = productData.img;
 
-        })
+                fetch(imageURL)
+                    .then(response => response.blob())
+                    .then(blob => {
+                        console.log(blob);
+                        var file = new File([blob], 'image.jpg', { type: 'image/jpeg' });
+                        var fileList = new DataTransfer();
+                        fileList.items.add(file);
+                        var input = document.getElementById('img');
+                        input.files = fileList.files;
+                    })
+                    .catch(error => console.error('Error:', error));
+
+                // document.querySelector('#form').scrollIntoView({ behavior: 'smooth' })
+
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+
+            })
             .catch(error => {
                 console.error('Ошибка при получении данных о продукте:', error);
             });
     }
 
     function deleteProduct(productId) {
-        axios.delete('http://127.0.0.1:8000/api/products/${productId}')
+        axios.delete(`https://api.mirpodarkov-navoi.uz/api/products/${productId}`)
             .then(response => {
-            console.log('Продукт успешно удален');
-            getProducts()
-        })
+                console.log('Продукт успешно удален');
+                getProducts()
+            })
             .catch(error => {
                 console.error('Ошибка при удалении продукта:', error);
             });

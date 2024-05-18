@@ -1,5 +1,8 @@
 :root {
-    --btnMain: #005BFF;
+    /* --btnMain: #005BFF;
     --btnActive: #0047cb;
-    --btnHover: #0047cb;
+    --btnHover: #0047cb; */
+    --btnMain: #ff2f2d;
+    --btnActive: #cb2424;
+    --btnHover: #cb2424;
 }

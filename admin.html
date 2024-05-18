@@ -25,11 +25,12 @@
             <label for="sale">On Sale:</label>
             <input type="checkbox" id="sale" name="sale"><br><br>
             <label for="count">Count:</label>
-            <input max="9999999999" type="number" id="count" name="count" required><br><br>
-            <label for="img">Image URL:</label>
-            <input type="text" id="img" name="img" required><br><br>
+            <input max="9999999999" type="number" id="count" name="count"><br><br>
+            <label for="img">Image URL(jpg, png, jpeg, webp):</label>
+            <input type="file" id="img" name="img" accept=".jpg, .jpeg, .png, .webp" required><br><br>
+            <!-- <input type="text" id="img" name="img" required><br><br> -->
             <label for="category">Category:</label>
-            <input type="text" id="category" name="category" required><br><br>
+            <input type="text" id="category" name="category"><br><br>
             <button type="submit">Применить</button>
         </form>
         <div class="admin__create-bottom">

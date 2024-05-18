@@ -7,17 +7,10 @@
     "build": "webpack --mode=production",
     "watch": "webpack --watch --mode=development"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/IlyaRd/shopTemplate.git"
-  },
   "keywords": [],
-  "author": "",
+  "author": "Sarkor",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/IlyaRd/shopTemplate/issues"
-  },
-  "homepage": "https://github.com/IlyaRd/shopTemplate#readme",
+
   "devDependencies": {
     "scrollreveal": "^4.0.9",
     "swiper": "^8.1.6",

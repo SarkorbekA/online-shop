@@ -1,5 +1,5 @@
 const postData = (cart) => {
-  return fetch('http://127.0.0.1:8000/api/orders', {
+  return fetch('https://api.mirpodarkov-navoi.uz/api/orders', {
     method: 'POST',
     body: JSON.stringify(cart),
     headers: {

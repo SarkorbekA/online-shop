@@ -98,8 +98,11 @@
 .products-content__item--discount {
     width: 100%;
     display: flex;
-    align-items: center; 
-    column-gap: 10px;  
+    /* flex-wrap: wrap; */
+    flex-direction: column;
+    /* align-items: center;  */
+    align-items: flex-start;
+    column-gap: 10px;
 }
 
 .products-content__item--price {
@@ -120,10 +123,103 @@
     opacity: 0.4;
 }
 
+.products-content__box {
+    width: 100%;
+    height: calc(100% - 32px);
+}
+
 .products-content__item--btn {
     width: 100%;
     padding: 8px;
-    margin-top: 35px;
+    margin-top: auto;
+    height: 32px;
+}
+
+.product__modal {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.product__modal-wrapper {
+    width: 100%;
+    max-width: 740px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 200;
+    margin: 0 25px;
+    row-gap: 10px;
+    box-shadow: var(--mainShadow);
+    background-color: var(--bgMain);
+    border-radius: var(--lowRadius);
+}
+
+.product__modal-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 8px;
+}
+
+.product__modal-filter {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.product__modal-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.product__modal-count {
+    color: var(--colorDark);
+    font-weight: 700;
+    font-size: 13px;
+    text-decoration: line-through;
+    opacity: 0.4;
+}
+
+.product__modal-img {
+    height: 300px;
+    width: 100%;
+}
+
+.product__modal-img img {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.product__modal-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: -10px;
+    top: -30px;
+    background: var(--btnMain);
+    border-radius: var(--lowRadius);
+    box-shadow: var(--lowShadow);
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
 
 @media (max-width: 960px) {

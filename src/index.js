@@ -8,10 +8,24 @@ import catalog from './modules/catalog';
 import admin from './modules/admin';
 
 
-console.log(window.location);
+
+let cartModalNext = document.querySelector('.cart-modal__next')
+
 
 // if (window.location.pathname === '/index.html' || window.location.pathname === '/') {
 if (!window.location.pathname.includes('admin.html')) {
+
+
+    if (JSON.parse(localStorage.getItem('cart'))) {
+        if (JSON.parse(localStorage.getItem('cart')).length > 0) {
+            cartModalNext.disabled = false
+        } else{
+            cartModalNext.disabled = true
+        }
+    } else{
+        cartModalNext.disabled = true
+    }
+
     const swiper = new Swiper(".swiper", {
         autoplay: {
             delay: 5000,

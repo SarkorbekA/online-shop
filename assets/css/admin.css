@@ -97,6 +97,10 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+input[type="file"]{
+    color: white;
+}
+
 .admin__create-form input[type="checkbox"] {
     margin-left: 5px;
 }
@@ -182,8 +186,10 @@ input[type="number"] {
 }
 
 .product__img-item {
-    max-width: 100%;
+    width: 100%;
+    max-width: 400px;
     height: auto;
+    object-fit: contain;
 }
 
 .product-title {

@@ -3,6 +3,7 @@ import postData from "./postData"
 
 const cart = () => {
     let cartBtn = document.querySelector('.navbar-nav__cart')
+    let cartBtnFixed = document.querySelector('.card__btn-fixed')
     let cartModal = document.querySelector('.cart-modal')
     let cartModalClose = document.querySelector('.cart-modal__close')
     let cartModalBtnClose = document.querySelector('.cart-modal__btn--close')
@@ -12,10 +13,12 @@ const cart = () => {
     let cartModalList = document.querySelector('.cart-modal__list')
     let cartTotal = document.getElementById('cartSpan')
     let productsWrapper = document.querySelector('.products-content__wrapper')
+    let cardModalOk = document.querySelector('.card-modal__ok')
 
     // console.log(cartTotal);
 
-    cartBtn.addEventListener('click', () => {
+
+    let openCart = () => {
         cartModal.style.display = 'flex'
         document.body.style = 'overflow: hidden;'
 
@@ -25,9 +28,14 @@ const cart = () => {
         renderCart(cart)
 
         cartTotal.textContent = cart.reduce((sum, productsItem) => {
-            return sum + productsItem.price
+            return sum + +productsItem.price
         }, 0)
-    })
+    }
+
+
+    cartBtnFixed.addEventListener('click', openCart)
+
+    cartBtn.addEventListener('click', openCart)
 
     cartModalClose.addEventListener('click', () => {
         cartModal.style.display = 'none'
@@ -63,6 +71,16 @@ const cart = () => {
             cartModalNext.innerHTML = 'Назад'
             cartModalList.classList.add('active')
         }
+
+        if (JSON.parse(localStorage.getItem('cart'))) {
+            if (JSON.parse(localStorage.getItem('cart')).length <= 0 && cartModalNext.textContent.trim() == 'Оформить заказ') {
+                cartModalNext.disabled = true
+            } else if (JSON.parse(localStorage.getItem('cart')).length > 0 && !cartModalNext.textContent.trim() == 'Назад') {
+                cartModalNext.disabled = false
+            }
+        } else {
+            cartModalNext.disabled = true
+        }
     })
 
     productsWrapper.addEventListener('click', (event) => {
@@ -77,6 +95,14 @@ const cart = () => {
             })
             cart.push(productsItem)
             localStorage.setItem('cart', JSON.stringify(cart))
+
+            localStorage.setItem('cart', JSON.stringify(cart))
+
+            if (JSON.parse(localStorage.getItem('cart')).length > 0 || cartModalNext.textContent.trim() == 'Оформить заказ') {
+                cartModalNext.disabled = false
+            } else {
+                cartModalNext.disabled = true
+            }
         }
     })
     cartModalList.addEventListener('click', (event) => {
@@ -93,10 +119,16 @@ const cart = () => {
 
             localStorage.setItem('cart', JSON.stringify(cart))
 
+            if (JSON.parse(localStorage.getItem('cart')).length > 0 && !cartModalNext.textContent.trim() == 'Назад' && cartModalNext.textContent.trim() == 'Оформить заказ') {
+                cartModalNext.disabled = false
+            } else if (JSON.parse(localStorage.getItem('cart')).length <= 0 && cartModalNext.textContent.trim() == 'Оформить заказ') {
+                cartModalNext.disabled = true
+            }
+
             renderCart(cart)
 
             cartTotal.textContent = cart.reduce((sum, productsItem) => {
-                return sum + productsItem.price
+                return sum + +productsItem.price
             }, 0)
         }
     })
@@ -105,13 +137,14 @@ const cart = () => {
         const cart = localStorage.getItem('cart') ?
             JSON.parse(localStorage.getItem('cart')) : []
 
-        console.log(cart);
+        // console.log(cart);
 
         const formData = new FormData(event.target);
 
         const data = {
             user_name: formData.get('name'),
             contact: formData.get('contact'),
+            address: formData.get('address'),
             items: []
         };
 
@@ -133,15 +166,29 @@ const cart = () => {
             }
         }
 
-        // console.log(data);
-
         postData(data)
             .then(() => {
                 localStorage.removeItem('cart')
                 renderCart([])
                 cartTotal.textContent = 0
                 cartModalForm.reset();
+                cardModalOk?.classList.add('active');
+
+                setTimeout(() => {
+                    cardModalOk?.classList.remove('active');
+                }, 2500);
             })
+            .catch((error) => {
+                console.error('Ошибка при отправке данных:', error);
+                cardModalOk.innerHTML = 'Ошибка при оформлении, повторите попытку'
+                cardModalOk.style.backgroundColor = 'red';
+                cardModalOk.classList.add('active');
+
+                setTimeout(() => {
+                    cardModalOk?.classList.remove('active');
+                }, 2500);
+                cardModalOk.innerHTML = 'Заказ оформлен успешно!';
+            });
     })
 }
 
