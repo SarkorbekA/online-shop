@@ -4,6 +4,9 @@ import { priseFillter, checkedFillter } from "./fillters"
 const filter = () => {
     let filter = document.querySelector('.navbar-nav__filter')
     let filterWrapper = document.querySelector('.navbar-nav__filter--wrapper')
+    let category = document.querySelector('.navbar-nav__category')
+    let categoryWrapper = document.querySelector('.navbar-nav__category--wrapper')
+    let categoryList = document.querySelectorAll('.navbar-nav__category-option')
     let filterLabel = document.querySelector('.navbar-nav__filter--list--label')
     let filterCheckbox = document.getElementById('discount')
     let filterChecked = document.querySelector('.navbar-nav__filter--list--checked')
@@ -20,8 +23,18 @@ const filter = () => {
         input.value = value;
     }
 
+    categoryList.forEach(el => {
+        el.addEventListener('click', () => {
+            category.classList.remove('active')
+        })
+    });
+
     filterWrapper.addEventListener('click', () => {
         filter.classList.toggle('active')
+    })
+
+    categoryWrapper.addEventListener('click', () => {
+        category.classList.toggle('active')
     })
 
     filterLabel.addEventListener('click', () => {

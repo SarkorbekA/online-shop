@@ -5,9 +5,13 @@ export const searchFillter = (products, valueInput) => {
 }
 
 export const categoryFillter = (products, valueInput) => {
-    return products.filter((productsItem) => {
-        return productsItem.category === valueInput
-    })
+    if (valueInput === 'all') {
+        return products;
+    } else {
+        return products.filter((productsItem) => {
+            return productsItem.category === valueInput
+        })
+    }
 }
 export const priseFillter = (products, min, max) => {
     return products.filter((productsItem) => {
@@ -31,4 +35,11 @@ export const checkedFillter = (products, valueInput) => {
             return productsItem
         }
     })
+}
+
+export const toFormat = (str) => {
+    str = String(str);
+    return str.split('').reverse().join('')
+        .match(/\d{0,3}/g).join(' ')
+        .split('').reverse().join('').trim()
 }

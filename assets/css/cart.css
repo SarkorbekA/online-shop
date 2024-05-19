@@ -96,7 +96,7 @@
     left: -10px;
     top: -30px;
     padding: 12px;
-    background: var(--btnMain);
+    background: var(--btnIncrease);
     border-radius: var(--lowRadius);
     box-shadow: var(--lowShadow);
     color: var(--colorLight);
@@ -163,7 +163,7 @@
 
 .cart-modal__next,
 .cart-modal__call {
-    width: 160px;
+    width: 170px;
     height: 40px;
 }
 
@@ -221,6 +221,7 @@
     font-size: 18px;
     font-weight: 700;
     opacity: 0.4;
+    text-align: center;
 }
 
 @media (max-width: 791px) {

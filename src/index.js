@@ -7,6 +7,13 @@ import search from './modules/search';
 import catalog from './modules/catalog';
 import admin from './modules/admin';
 
+localStorage.setItem('lang', 'uz');
+
+if(window.location.pathname === '/index-uz.html'){
+    localStorage.setItem('lang', 'uz');
+} else{
+    localStorage.setItem('lang', 'ru');
+}
 
 
 let cartModalNext = document.querySelector('.cart-modal__next')

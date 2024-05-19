@@ -1,5 +1,6 @@
 import renderCart from "./renderCart"
 import postData from "./postData"
+import { toFormat } from "./fillters"
 
 const cart = () => {
     let cartBtn = document.querySelector('.navbar-nav__cart')
@@ -14,9 +15,7 @@ const cart = () => {
     let cartTotal = document.getElementById('cartSpan')
     let productsWrapper = document.querySelector('.products-content__wrapper')
     let cardModalOk = document.querySelector('.card-modal__ok')
-
-    // console.log(cartTotal);
-
+    let productModal = document.querySelector('.product__modal-wrapper')
 
     let openCart = () => {
         cartModal.style.display = 'flex'
@@ -27,11 +26,12 @@ const cart = () => {
 
         renderCart(cart)
 
-        cartTotal.textContent = cart.reduce((sum, productsItem) => {
-            return sum + +productsItem.price
-        }, 0)
+        cartTotal.innerText = toFormat(
+            cart.reduce((sum, productsItem) => {
+                return sum + (+productsItem.price * productsItem.quantity)
+            }, 0)
+        );
     }
-
 
     cartBtnFixed.addEventListener('click', openCart)
 
@@ -88,13 +88,34 @@ const cart = () => {
             const card = event.target.closest('.products-content__item')
             const key = card.dataset.key
             const products = JSON.parse(localStorage.getItem('products'))
+
             const cart = localStorage.getItem('cart') ?
                 JSON.parse(localStorage.getItem('cart')) : []
+
             const productsItem = products.find((item) => {
                 return item.id === +key
             })
-            cart.push(productsItem)
-            localStorage.setItem('cart', JSON.stringify(cart))
+
+            const existingItem = cart.find((item) => {
+                return item.id === +key;
+            });
+
+            if (existingItem) {
+                existingItem.quantity++;
+                existingItem.totalPrice += +productsItem.price;
+            } else {
+                cart.push({
+                    title: productsItem.title,
+                    id: productsItem.id,
+                    quantity: 1,
+                    totalPrice: 0,
+                    price: +productsItem.price,
+                    count: productsItem.count,
+                    category: productsItem.category,
+                    sale: productsItem.sate,
+                    img: productsItem.img
+                });
+            }
 
             localStorage.setItem('cart', JSON.stringify(cart))
 
@@ -105,8 +126,50 @@ const cart = () => {
             }
         }
     })
+
+    productModal.addEventListener('click', (event) => {
+        if (event.target.classList.contains('product__modal-btn')) {
+            const card = event.target.closest('.product__modal-wrapper')
+            const key = card.dataset.key
+            console.log(key);
+            const products = JSON.parse(localStorage.getItem('products'))
+            const cart = localStorage.getItem('cart') ?
+                JSON.parse(localStorage.getItem('cart')) : []
+            const productsItem = products.find((item) => {
+                return item.id === +key
+            })
+            cart.push(productsItem)
+            localStorage.setItem('cart', JSON.stringify(cart))
+
+            if (JSON.parse(localStorage.getItem('cart')).length > 0 || cartModalNext.textContent.trim() == 'Оформить заказ') {
+                cartModalNext.disabled = false
+            } else {
+                cartModalNext.disabled = true
+            }
+        }
+    })
+
+
+    const decreaseBtn = document.querySelector('.quantity-control__btn--decrease');
+    const increaseBtn = document.querySelector('.quantity-control__btn--increase');
+
+    const quantitySpan = document.querySelectorAll('.quantity-control__quantity');
+
+
+    // decreaseBtn.addEventListener('click', () => {
+    //     let currentQuantity = parseInt(quantitySpan.textContent, 10);
+    //     if (currentQuantity > 1) {
+    //         quantitySpan.textContent = currentQuantity - 1;
+    //     }
+    // });
+
+    // increaseBtn.addEventListener('click', () => {
+    //     let currentQuantity = parseInt(quantitySpan.textContent, 10);
+    //     quantitySpan.textContent = currentQuantity + 1;
+    // });
+
     cartModalList.addEventListener('click', (event) => {
-        if (event.target.classList.contains('products-content__item--btn')) {
+        if (event.target.classList.contains('quantity-control__btn--decrease')) {
             const cart = localStorage.getItem('cart') ?
                 JSON.parse(localStorage.getItem('cart')) : []
             const card = event.target.closest('.products-content__item')
@@ -115,7 +178,11 @@ const cart = () => {
                 return item.id === +key
             })
 
-            cart.splice(index, 1)
+            if (cart[index].quantity > 1) {
+                cart[index].quantity = cart[index].quantity - 1;
+            } else {
+                cart.splice(index, 1)
+            }
 
             localStorage.setItem('cart', JSON.stringify(cart))
 
@@ -127,17 +194,47 @@ const cart = () => {
 
             renderCart(cart)
 
-            cartTotal.textContent = cart.reduce((sum, productsItem) => {
-                return sum + +productsItem.price
-            }, 0)
+            cartTotal.innerText = toFormat(
+                cart.reduce((sum, productsItem) => {
+                    return sum + (+productsItem.price * productsItem.quantity)
+                }, 0)
+            );
         }
+        if (event.target.classList.contains('quantity-control__btn--increase')) {
+            const cart = localStorage.getItem('cart') ?
+                JSON.parse(localStorage.getItem('cart')) : []
+            const card = event.target.closest('.products-content__item')
+            const key = card.dataset.key
+
+            const index = cart.findIndex((item) => {
+                return item.id === +key
+            })
+
+            cart[index].quantity++;
+
+            localStorage.setItem('cart', JSON.stringify(cart))
+
+            if (JSON.parse(localStorage.getItem('cart')).length > 0 && !cartModalNext.textContent.trim() == 'Назад' && cartModalNext.textContent.trim() == 'Оформить заказ') {
+                cartModalNext.disabled = false
+            } else if (JSON.parse(localStorage.getItem('cart')).length <= 0 && cartModalNext.textContent.trim() == 'Оформить заказ') {
+                cartModalNext.disabled = true
+            }
+
+            renderCart(cart)
+
+            cartTotal.innerText = toFormat(
+                cart.reduce((sum, productsItem) => {
+                    return sum + (+productsItem.price * productsItem.quantity)
+                }, 0)
+            );
+        }
+
     })
+
     cartModalForm?.addEventListener('submit', (event) => {
         event.preventDefault();
         const cart = localStorage.getItem('cart') ?
             JSON.parse(localStorage.getItem('cart')) : []
-
-        // console.log(cart);
 
         const formData = new FormData(event.target);
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мир Подарков - Главная</title>
+    <title>Мир Подарков - Bosh Sahifa</title>
     <script src="./dist/main.js" defer></script>
     <link rel="shortcut icon" href="./assets/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="assets/css/index.css">
@@ -23,7 +23,7 @@
                         <div class="navbar-nav__filter">
                             <button type="button" class="btn navbar-nav__filter--wrapper">
                                 <img src="assets/img/icon-filter.svg" alt="">
-                                <span>Фильтры</span>
+                                <span>Filtrlar</span>
                             </button>
                             <div class="navbar-nav__filter--list">
                                 <input id="min" type="text" inputmode="numeric"
@@ -37,37 +37,37 @@
                                     <div class="navbar-nav__filter--list--checkbox">
                                         <div class="navbar-nav__filter--list--checked"></div>
                                     </div>
-                                    <span>Акции</span>
+                                    <span>Aksiya</span>
                                 </label>
                             </div>
                         </div>
                         <div class="navbar-nav__category">
                             <button type="button" class="btn navbar-nav__category--wrapper">
-                                <span>Категории</span>
+                                <span>Kategoriyalar</span>
                             </button>
                             <div class="navbar-nav__category--list">
                                 <a href="#products" class="navbar-nav__category-option category-filter"
-                                    data-category="all">Все</a>
+                                    data-category="all">Barchasi</a>
                                 <a href="#products" class="navbar-nav__category-option category-filter"
-                                    data-category="Телефоны">Телефоны</a>
+                                    data-category="Телефоны">Telefonlar</a>
                                 <a href="#products" class="navbar-nav__category-option category-filter"
-                                    data-category="Ноутбуки">Ноутбуки</a>
+                                    data-category="Ноутбуки">Noutbuklar</a>
                                 <a href="#products" class="navbar-nav__category-option category-filter"
-                                    data-category="Телевизоры">Телевизоры</a>
+                                    data-category="Телевизоры">Televizorlar</a>
                             </div>
                         </div>
                     </div>
                     <div class="navbar-nav__search">
-                        <input type="text" class="navbar-nav__search--input" placeholder="Поиск по сайту...">
-                        <a href="#products" class="btn">Найти</a>
+                        <input type="text" class="navbar-nav__search--input" placeholder="Sayt bo`ylab qidiruv...">
+                        <a href="#products" class="btn">Qidiruv</a>
                     </div>
                     <div class="navbar-nav__wrapper">
                         <button type="button" class="btn navbar-nav__cart">
                             <img src="./assets/img/icon-cart.svg" alt="">
-                            <span>Корзина</span>
+                            <span>Savat</span>
                         </button>
-                        <a href="index-uz.html" class="btn navbar-nav__lang">
-                            <img src="./assets/img/icon-lang.svg" alt="lang icon">
+                        <a href="index.html" class="btn navbar-nav__lang">
+                            <img src="./assets/img/icon-lang.svg" alt="">
                         </a>
                     </div>
                 </div>
@@ -81,22 +81,22 @@
                             <div class="swiper-slide header-slider__item">
                                 <img src="./assets/img/slider-1.png" alt="" class="header-content__img">
                                 <div class="header-slider__item--wrapper">
-                                    <h2>Смартфон Samsung Galaxy S21 128 ГБ Phantom Gray</h2>
-                                    <a href="#products" class="btn">Подробнее</a>
+                                    <h2>Samsung Galaxy S21 128 ГБ Phantom Gray smartfoni</h2>
+                                    <a href="#products" class="btn">Batafsil</a>
                                 </div>
                             </div>
                             <div class="swiper-slide header-slider__item">
                                 <img src="./assets/img/laptop.png" alt="" class="header-content__img">
                                 <div class="header-slider__item--wrapper">
-                                    <h2>Игровой ноутбук Lenovo Gaming 3</h2>
-                                    <a href="#products" class="btn">Подробнее</a>
+                                    <h2>Lenovo Gaming 3 o'yin noutbuki</h2>
+                                    <a href="#products" class="btn">Batafsil</a>
                                 </div>
                             </div>
                             <div class="swiper-slide header-slider__item">
                                 <img src="./assets/img/TV.png" alt="" class="header-content__img">
                                 <div class="header-slider__item--wrapper">
-                                    <h2>Телевизор Samsung UE55AU7100 Smart</h2>
-                                    <a href="#products" class="btn">Подробнее</a>
+                                    <h2>Samsung UE55AU7100 Smart televizori</h2>
+                                    <a href="#products" class="btn">Batafsil</a>
                                 </div>
                             </div>
                         </div>
@@ -111,13 +111,16 @@
             <div class="container">
                 <div class="category-content">
                     <a href="#products" class="category-content__item category-content__item-1">
-                        <span class="category-content__item-name category-filter">Телефоны</span>
+                        <span data-category="Телефоны"
+                            class="category-content__item-name category-filter">Telefonlar</span>
                     </a>
                     <a href="#products" class="category-content__item category-content__item-2">
-                        <span class="category-content__item-name category-filter">Ноутбуки</span>
+                        <span data-category="Ноутбуки"
+                            class="category-content__item-name category-filter">Noutbuklar</span>
                     </a>
                     <a href="#products" class="category-content__item category-content__item-3">
-                        <span class="category-content__item-name category-filter">Телевизоры</span>
+                        <span data-category="Телевизоры"
+                            class="category-content__item-name category-filter">Televizorlar</span>
                     </a>
                 </div>
             </div>
@@ -125,7 +128,7 @@
         <section class="products" id="products">
             <div class="container">
                 <div class="products-content">
-                    <h2 class="products-content__title">Наш ассортимент</h2>
+                    <h2 class="products-content__title">Bizning assortiment</h2>
                     <div class="products-content__wrapper">
                     </div>
                 </div>
@@ -141,7 +144,7 @@
                         </a>
                         <a href="tel:+998905013759" class="btn footer-content__phone">
                             <img src="assets/img/icon-phone.svg" alt="">
-                            <span>Позвонить</span>
+                            <span>Qong'iroq</span>
                         </a>
                     </div>
                     <div class="footer-content__wrapper">
@@ -164,7 +167,7 @@
             <div class="cart-modal__close"></div>
             <div class="cart-modal__wrapper">
                 <div class="cart-modal__total">
-                    Всего: <span id="cartSpan">0</span> сум
+                    Jami: <span id="cartSpan">0</span> sum
                 </div>
                 <button class="cart-modal__btn--close">
                     <img src="./assets/img/icon-close.svg" alt="">
@@ -180,14 +183,14 @@
                         <input required type="text" name="address"
                             class="cart-modal__form--address cart-modal__form--phone" placeholder="Ваш адрес">
                     </div>
-                    <button class="btn cart-modal__form--send">Заказать</button>
+                    <button class="btn cart-modal__form--send">Buyurtma qilish</button>
                 </form>
                 <div class="cart-modal__buttons">
                     <button type="button" class="btn cart-modal__next">
-                        Оформить заказ
+                        Buyurtma qilish
                     </button>
                     <a href="tel:+998905013759" class="btn cart-modal__call">
-                        <span>Заказать звонком</span>
+                        <span>Qong'iroqli buyurtma</span>
                     </a>
                 </div>
             </div>
@@ -201,7 +204,7 @@
                 <div class="product__modal-content" id="product__modal-content"></div>
             </div>
         </div>
-        <div class="card-modal__ok">Заказ оформлен успешно!</div>
+        <div class="card-modal__ok">Buyurtma muvaffaqiyatli bajarildi!</div>
         <div class="card__btn-fixed">
             <img src="./assets/img/icon-cart.svg" alt="cart icon">
         </div>
